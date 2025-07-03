@@ -1,0 +1,24 @@
+%p
+  Hello 
+  = @requester_name.presence || "User"
+  ,
+
+%p
+  Your service request for 
+  %strong
+    = @description.presence || "No description"
+  has been 
+  %strong
+    = @approval_state.to_s.capitalize
+
+%p
+  🔗 You can view it here:
+  %a{ href: "https://192.168.210.200/miq_request/show/#{@id}", target: "_blank" }
+    = "https://192.168.210.200/miq_request/show/#{@id}"
+
+%p
+  Thank you,
+  %br/
+  CMP Team
+  %br/
+  %img{ src: "https://xaasio.com/wp-content/uploads/2024/02/logo-v4.svg", width: "100", height: "auto", alt: "Xaasio" }

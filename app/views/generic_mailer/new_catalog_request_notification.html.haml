@@ -1,0 +1,21 @@
+%p Hello Admin,
+
+%p
+  A new service request has been submitted by 
+  %strong= @requester_email
+
+%p
+  Request details:
+  %strong= @description.presence || "No description provided"
+
+%p
+  🔗 You can review and approve it here:
+  %a{ href: "https://192.168.210.200/miq_request/show/#{@id}", target: "_blank" }
+    = "https://192.168.210.200/miq_request/show/#{@id}"
+
+%p
+  Thank you,
+  %br/
+  CMP Team
+  %br/
+  %img{ src: "https://xaasio.com/wp-content/uploads/2024/02/logo-v4.svg", width: "100", height: "auto", alt: "Xaasio" }
