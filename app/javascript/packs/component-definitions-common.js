@@ -181,6 +181,9 @@ import XmlHolder from '../components/XmlHolder';
 import ZoneForm from '../components/zone-form';
 import MiqAeClass from '../components/miq-ae-class';
 
+import AddVolumeForm from '../components/vm-infra/add-volume';
+import RemoveVolumeForm from '../components/vm-infra/remove-volume';
+
 /**
 * Add component definitions to this file.
 * example of component definition:
@@ -369,3 +372,6 @@ ManageIQ.component.addReact('WorkflowRepositoryForm', WorkflowRepositoryForm);
 ManageIQ.component.addReact('XmlHolder', XmlHolder);
 ManageIQ.component.addReact('ZoneForm', ZoneForm);
 ManageIQ.component.addReact('MiqAeClass', MiqAeClass);
+
+ManageIQ.component.addReact('AddVolumeForm', AddVolumeForm);
+ManageIQ.component.addReact('RemoveVolumeForm', RemoveVolumeForm);

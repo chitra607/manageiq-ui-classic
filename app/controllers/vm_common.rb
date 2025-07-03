@@ -5,6 +5,32 @@ module VmCommon
   include ProvisionCustomizeHelper
   include HidePartialHelper
 
+  def add_volume
+    Rails.logger.info("DEBUG: add_volume called, @explorer=#{@explorer}, params[:id]=#{params[:id]}")
+    @record = find_record_with_rbac(VmOrTemplate, params[:id])
+    @edit ||= {}
+    @in_a_form = true
+
+    if @explorer
+      @refresh_partial = "vm_common/add_volume"
+      @edit[:explorer] = true
+    end
+  end
+  alias_method :instance_add_volume, :add_volume
+
+  def remove_volume
+    Rails.logger.info("DEBUG: remove_volume called, @explorer=#{@explorer}, params[:id]=#{params[:id]}")
+    @record = find_record_with_rbac(VmOrTemplate, params[:id])
+    @edit ||= {}
+    @in_a_form = true
+
+    if @explorer
+      @refresh_partial = "vm_common/remove_volume"
+      @edit[:explorer] = true
+    end
+  end
+  alias_method :instance_remove_volume, :remove_volume
+
   def textual_group_list
     [
       %i[properties multi_region lifecycle relationships vmsafe normal_operating_ranges miq_custom_attributes ems_custom_attributes labels],
