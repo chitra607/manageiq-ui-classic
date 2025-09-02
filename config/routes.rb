@@ -715,6 +715,7 @@ Rails.application.routes.draw do
         show_list
         tagging_edit
         protect
+        edit
       ],
       :post => %w[
         button

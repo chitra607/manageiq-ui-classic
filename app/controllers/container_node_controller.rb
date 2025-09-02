@@ -12,6 +12,24 @@ class ContainerNodeController < ApplicationController
     process_show_list(:named_scope => :active)
   end
 
+  def button
+    @edit = session[:edit]
+    case params[:pressed]
+    when "container_node_edit"
+      javascript_redirect(:action => "edit", :id => checked_item_id(params))
+    end
+  end
+
+  def edit
+    assert_privileges("container_node_edit")
+    @container_node = find_record_with_rbac(ContainerNode, params[:id])
+    @in_a_form = true
+    drop_breadcrumb(
+      :name => _("Edit Container Node \"%{name}\"") % {:name => @container_node.name},
+      :url  => "/container_node/edit/#{@container_node.id}"
+    )
+  end
+
   def textual_group_list
     [
       %i[properties container_labels compliance miq_custom_attributes],

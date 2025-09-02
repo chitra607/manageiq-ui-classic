@@ -1,0 +1,4 @@
+= render :partial => "layouts/flash_msg"
+.col-md-12
+  = react('ContainerNodeForm', {recordId: @container_node.id.to_s, mode: 'edit'})
+  

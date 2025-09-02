@@ -1,4 +1,23 @@
 class ApplicationHelper::Toolbar::ContainerNodeCenter < ApplicationHelper::Toolbar::Basic
+  button_group('container_node_vmdb', [
+    select(
+      :container_node_vmdb_choice,
+      nil,
+      t = N_('Configuration'),
+      t,
+      :items => [
+        button(
+          :container_node_edit,
+          'pficon pficon-edit fa-lg',
+          t = N_('Edit this Container Node'),
+          t,
+          :url_parms    => 'main_div',
+          :send_checked => true,
+          :options      => {:feature => :update}
+        ),
+      ]
+    ),
+  ])
   button_group('container_node_monitoring', [
     select(
       :container_node_monitoring_choice,
